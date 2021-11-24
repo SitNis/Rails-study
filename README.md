@@ -21,3 +21,11 @@ Things you may want to cover:
 
 * Deployment instructions
 
+* Models that will be added in not that far future:
+  * Admin
+  * User
+  * Test
+  * Category
+  * Question
+  * Answer
+  * Results
