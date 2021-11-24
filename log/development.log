@@ -22,3 +22,11 @@ Processing by Rails::WelcomeController#index as HTML
 Completed 200 OK in 10ms (Views: 5.3ms | ActiveRecord: 0.0ms | Allocations: 2443)
 
 
+Started GET "/" for 127.0.0.1 at 2021-11-24 20:33:36 +0300
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/sitnis/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/sitnis/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 5.2ms | Allocations: 337)
+Completed 200 OK in 10ms (Views: 6.2ms | ActiveRecord: 0.0ms | Allocations: 2443)
+
+
