@@ -40,7 +40,7 @@ answers = Answer.create!([
   {title: '1995', question_id: questions[3].id}
 ])
 
-results = Result.create!([
+tests_users = TestsUser.create!([
   {user_id: users[0].id, test_id: tests[0].id},
   {user_id: users[0].id, test_id: tests[3].id},
   {user_id: users[1].id, test_id: tests[1].id},
