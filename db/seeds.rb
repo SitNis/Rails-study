@@ -16,35 +16,35 @@ categories = Category.create!([
 ])
 
 tests = Test.create!([
-  {title: 'Ruby', level: 1, author_id: users[1].id, category_id: categories[0].id},
-  {title: 'Rails', level: 0, author_id: users[0].id, category_id: categories[0].id}, 
-  {title: 'JavaScript', level: 0, author_id: users[0].id, category_id: categories[1].id}, 
-  {title:'CSS',level:1,author_id: users[1].id, category_id: categories[1].id}
+  {title: 'Ruby', level: 1, author: users[1], category: categories[0]},
+  {title: 'Rails', level: 0, author: users[0], category: categories[0]}, 
+  {title: 'JavaScript', level: 0, author: users[0], category: categories[1]}, 
+  {title:'CSS',level:1, author: users[1], category: categories[1]}
 ])
 
 questions = Question.create!([
-  {title: 'Кто написал язык Ruby?', test_id: tests[0].id},
-  {title: 'В каком году написали фреймворк Ruby on Rails?', test_id: tests[1].id},
-  {title: 'В каком году написали JavaScript', test_id: tests[2].id},
-  {title: 'В каком году написали CSS', test_id:tests[3].id}
+  {title: 'Кто написал язык Ruby?', test: tests[0]},
+  {title: 'В каком году написали фреймворк Ruby on Rails?', test: tests[1]},
+  {title: 'В каком году написали JavaScript', test: tests[2]},
+  {title: 'В каком году написали CSS', test:tests[3]}
 ])
 
 answers = Answer.create!([
-  {title: '1995', correct: 1, question_id: questions[0].id},
-  {title: '1996', question_id: questions[0].id},
-  {title: '2004', correct: 1, question_id: questions[1].id},
-  {title: '2003', question_id: questions[1].id},
-  {title: '1995', correct: 1, question_id: questions[2].id},
-  {title: '1998', question_id: questions[2].id},
-  {title: '1996', correct: 1, question_id: questions[3].id},
-  {title: '1995', question_id: questions[3].id}
+  {title: '1995', correct: 1, question: questions[0]},
+  {title: '1996', question: questions[0]},
+  {title: '2004', correct: 1, question: questions[1]},
+  {title: '2003', question: questions[1]},
+  {title: '1995', correct: 1, question: questions[2]},
+  {title: '1998', question: questions[2]},
+  {title: '1996', correct: 1, question: questions[3]},
+  {title: '1995', question: questions[3]}
 ])
 
-results = Result.create!([
-  {user_id: users[0].id, test_id: tests[0].id},
-  {user_id: users[0].id, test_id: tests[3].id},
-  {user_id: users[1].id, test_id: tests[1].id},
-  {user_id: users[1].id, test_id: tests[2].id}
+tests_users = TestsUser.create!([
+  {user: users[0], test: tests[0]},
+  {user: users[0], test: tests[3]},
+  {user: users[1], test: tests[1]},
+  {user: users[1], test: tests[2]}
 ])
 
 
