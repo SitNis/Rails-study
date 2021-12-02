@@ -12,7 +12,12 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    question = Question.create(title: params['question']['title'], test_id:params['test_id'])
+    @question = @test.questions.build(question_params)
+    if @question.save
+      redirect_to @question
+    else
+      render :new
+    end
   end
 
   def new
@@ -24,12 +29,16 @@ class QuestionsController < ApplicationController
 
   private
 
+  def question_params
+    params.require(:question).permit(:title)
+  end
+
   def current_test
-    @test = Test.find(params['test_id'])
+    @test = Test.find(params[:test_id])
   end
 
   def current_question
-    @question = Question.find(params['id'])
+    @question = Question.find(params[:id])
   end
 
   def rescue_with_question_not_found

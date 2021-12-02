@@ -1,8 +1,5 @@
 <h1>Question</h1>
 
-
-<form action="question/<%= @question[:id] %>" method="get">
-<p>Вопрос из теста <%= @question.test[:title]%></p>
-<p><%= @question[:title]%></p>
+<p>Вопрос из теста <%= @question.test.title%></p>
+<p><%= @question.title%></p>
 <%= link_to "Удалить", question_path(@question), method: "delete" %>
-</form>
