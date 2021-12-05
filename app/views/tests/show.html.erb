@@ -1,0 +1,10 @@
+
+<p>Тест: <%= @test.title %> </p>
+<p>Уровень: <%= @test.level %></p>
+<p>Количетсво вопросов: <%= @test.questions.count %></p>
+<p>Вопросы:</p>
+<%= render @test.questions %>
+<p> <%= link_to 'New question', new_test_question_path(@test) %></p>
+<p> <%= link_to 'Back', tests_path %> </p>
+
+
