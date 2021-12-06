@@ -1,12 +1,8 @@
 class QuestionsController < ApplicationController
 
-  before_action :current_test, only: %i[index create new]
-  before_action :current_question, only: %i[destroy show]
+  before_action :current_test, only: %i[create new]
+  before_action :current_question, only: %i[destroy show edit update]
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
-
-  def index
-    render plain: @test.questions.pluck(:title)
-  end
 
   def show
   end
@@ -21,11 +17,10 @@ class QuestionsController < ApplicationController
   end
 
   def edit
-    @question = Question.find(params[:id])
   end
 
   def new
-    @question = Question.new()
+    @question = Question.new
   end
 
   def destroy
@@ -34,7 +29,6 @@ class QuestionsController < ApplicationController
   end
 
   def update
-    @question = Question.find(params[:id])
     if @question.update(question_params)
       redirect_to @question
     else
@@ -59,5 +53,4 @@ class QuestionsController < ApplicationController
   def rescue_with_question_not_found
     render plain: "Такого вопроса нет!"
   end
-
 end
