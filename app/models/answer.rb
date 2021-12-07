@@ -4,12 +4,12 @@ class Answer < ApplicationRecord
   validates :title, presence: true
   validate :validate_number_of_answers
 
-  scope :correctly, -> { where(correct: true) }
+  scope :correct, -> { where(correct: true) }
 
   private
 
   def validate_number_of_answers
-    errors.add :base, :invalid, message: "Question can only have 1..4 answers" if question.answers.count >= 4
+    errors.add :base, :invalid, message: "Question can only have 1..4 answers" if self.question.answers.count >= 4
   end
 
 end
