@@ -39,13 +39,3 @@ answers = Answer.create!([
   {title: '1996', correct: 1, question: questions[3]},
   {title: '1995', question: questions[3]}
 ])
-
-tests_users = TestsUser.create!([
-  {user: users[0], test: tests[0]},
-  {user: users[0], test: tests[3]},
-  {user: users[1], test: tests[1]},
-  {user: users[1], test: tests[2]}
-])
-
-
-
