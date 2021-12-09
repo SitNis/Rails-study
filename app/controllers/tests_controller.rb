@@ -17,7 +17,6 @@ class TestsController < ApplicationController
 
   def create
     @test = Test.new(test_params)
-    @test.author_id = 1
     if @test.save
       redirect_to @test
     else
@@ -47,10 +46,6 @@ class TestsController < ApplicationController
   end
 
   private
-
-  def current_user
-    @user = User.first
-  end
 
   def rescue_with_test_not_found
     render plain: "Такого теста нет!"

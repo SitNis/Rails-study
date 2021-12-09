@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      session[:user_id] = @user.id
       redirect_to tests_path
     else
       render :new
@@ -14,10 +15,6 @@ class UsersController < ApplicationController
   end
 
   private
-
-  def create_session
-    SessionsController.new
-  end
 
   def user_params
     params.require(:user).permit(:name, :password, :password_confirmation)

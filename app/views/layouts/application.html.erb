@@ -11,6 +11,11 @@
   </head>
 
   <body>
+
+    <%if logged_in? %> 
+      <p> Welcome, <%= current_user.name %> Guru. </p>
+    <% end %>
+
     <%= yield %>
     <%= render 'shared/footer' %>
   </body>
