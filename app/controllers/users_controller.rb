@@ -15,6 +15,10 @@ class UsersController < ApplicationController
 
   private
 
+  def create_session
+    SessionsController.new
+  end
+
   def user_params
     params.require(:user).permit(:name, :password, :password_confirmation)
   end
