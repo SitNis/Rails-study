@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  root 'tests#index'
+
+  get 'users/new'
+
+  get :signup, to: 'users#new'
+
+  resources :users, only: :create
+
   resources :answers
   resources :tests do
     resources :questions, shallow: true,  except: :index do
