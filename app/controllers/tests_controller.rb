@@ -1,6 +1,6 @@
 class TestsController < ApplicationController
 
-  before_action :current_test, only: %i[show edit update destroy]
+  before_action :current_test, only: %i[show edit update destroy start]
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
   def index
@@ -40,14 +40,23 @@ class TestsController < ApplicationController
     redirect_to tests_path
   end
 
+  def start
+    current_user.tests.push(@test)
+    redirect_to @user.test_passage(@test)
+  end
+
   private
+
+  def current_user
+    @user = User.first
+  end
 
   def rescue_with_test_not_found
     render plain: "Такого теста нет!"
   end
 
   def current_test
-    @test= Test.find(params[:id])
+    @test = Test.find(params[:id])
   end
 
   def test_params

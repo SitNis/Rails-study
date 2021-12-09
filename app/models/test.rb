@@ -4,8 +4,8 @@ class Test < ApplicationRecord
   belongs_to :category
 
   has_many :questions, dependent: :destroy
-  has_many :tests_users
-  has_many :users, through: :tests_users, dependent: :destroy
+  has_many :test_passages, dependent: :destroy
+  has_many :users, through: :test_passages, dependent: :destroy
 
   validates :title, presence: true, uniqueness: { scope: :level, message: "Такой тест уже существует!" }
   validates :level, numericality: { greater_than_or_equal_to: 0 }
