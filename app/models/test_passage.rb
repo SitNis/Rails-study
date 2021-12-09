@@ -1,4 +1,7 @@
 class TestPassage < ApplicationRecord
+
+  SUCCESS_RATIO = 85.freeze
+  
   belongs_to :user
   belongs_to :test
   belongs_to :current_question, class_name: "Question", optional: true
@@ -26,16 +29,12 @@ class TestPassage < ApplicationRecord
 
   private
 
-  SUCCESS_RATIO = 85.freeze
-
   def set_current_question
     self.current_question = next_question
   end
 
   def correct_answer?(answer_ids)
-    if answer_ids
-      correct_answers.ids.sort == answer_ids.map(&:to_i).sort
-    end
+    correct_answers.ids.sort == answer_ids.to_a.map(&:to_i).sort
   end
 
   def correct_answers
