@@ -1,7 +1,6 @@
 class TestsController < ApplicationController
 
   before_action :authenticate_user!
-  before_action :current_user, only: %i[create new start]
   before_action :set_test, only: %i[show edit update destroy start]
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
