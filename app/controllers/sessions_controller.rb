@@ -1,16 +1,24 @@
 class SessionsController < ApplicationController
-  def new
 
+  def index
+  end
+
+  def new
   end
 
   def create
-    @user = User.find_by(name: params[:name])
-    if @user&.authenticate(params[:password])
-      session[:user_id] = @user.id
+    user = User.find_by(name: params[:name])
+    if user&.authenticate(params[:password])
+      session[:user_id] = user.id
       redirect_to tests_path
     else
       flash[:alert] = 'Are you a Guru? Verify your Name and Password please'
       render :new
     end
+  end
+
+  def destroy
+    session.delete(:user_id)
+    redirect_to login_path
   end
 end
