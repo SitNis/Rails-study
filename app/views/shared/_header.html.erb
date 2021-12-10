@@ -4,4 +4,7 @@
           logout_path, 
           method: "delete",
           data: { confirm: 'Are you sure?'}  %></p>
+<% else %>
+  <p>Welcome!</p>
+  <p><%= link_to "Registration", signup_path %></p>
 <% end %>
