@@ -1,5 +1,5 @@
 <% if logged_in? %> 
-  <p> Welcome, <%= current_user.name %> Guru. </p>
+  <p> Welcome, <%= current_user.email %> Guru. </p>
   <p> <%= link_to "Logout",     
           logout_path, 
           method: "delete",
