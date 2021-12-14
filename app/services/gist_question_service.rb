@@ -1,11 +1,11 @@
 class GistQuestionService
 
-  ACCESS_TOKEN = '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'
+  ACCESS_TOKEN = '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'
 
   def initialize(question, client: nil)
     @question = question
     @test = @question.test
-    @client = client || Octokit::Client.new(:access_token => ACCESS_TOKEN)  
+    @client = client || Octokit::Client.new(  access_token: ACCESS_TOKEN)  
   end
 
   def call
