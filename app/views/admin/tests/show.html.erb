@@ -1,0 +1,9 @@
+<h1>Тест: <%= @test.title %> </h1>
+<p>Уровень: <%= @test.level %></p>
+<p>Количетсво вопросов: <%= @test.questions.count %></p>
+<h2>Вопросы:</h2>
+<%= render partial: 'admin/questions/question', collection: @test.questions %>
+<p> <%= link_to 'New question', new_admin_test_question_path(@test) %></p>
+<p> <%= link_to 'Back', admin_tests_path %> </p>
+
+

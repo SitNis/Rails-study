@@ -1,10 +1,10 @@
-<% if logged_in? %> 
+<% if user_signed_in? %> 
   <p> Welcome, <%= current_user.email %> Guru. </p>
   <p> <%= link_to "Logout",     
-          logout_path, 
+          destroy_user_session_path, 
           method: "delete",
           data: { confirm: 'Are you sure?'}  %></p>
 <% else %>
   <p>Welcome!</p>
-  <p><%= link_to "Registration", signup_path %></p>
+  <p><%= link_to "Registration", new_user_registration_path %></p>
 <% end %>
