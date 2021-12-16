@@ -1,6 +1,6 @@
 class GistQuestionService
 
-  ACCESS_TOKEN = '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'
+  ACCESS_TOKEN = Rails.application.credentials.api_key
 
   def initialize(question, client: nil)
     @question = question
@@ -9,14 +9,14 @@ class GistQuestionService
   end
 
   def call
-    @client.create_gist(gist_params)
+    result = @client.create_gist(gist_params)
   end
 
   private
 
   def gist_params
     {
-      description: "A question about #{@test.title} from TestGuru",
+      description: I18n.t('gist_question_service.gist_params.question', title: @question.title),
       files: {
         'test-guru-question.txt' => {
           content: gist_content

@@ -266,3 +266,12 @@ ru:
       long: "%d %B %Y, %H:%M"
       short: "%d %b, %H:%M"
     pm: вечера
+
+  gist_question_service:
+    gist_params:
+      question: "Вопрос %{title} с TestGuru"  
+
+  test_passages:
+    gist:
+      success: "Gist успешно сохранен!"
+      failure: "Во время сохранения gist произошла ошибка!"
