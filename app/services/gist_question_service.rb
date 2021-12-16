@@ -1,15 +1,16 @@
 class GistQuestionService
+  GITHUB_GIST_TOKEN = Rails.application.credentials.api_key
 
-  ACCESS_TOKEN = Rails.application.credentials.api_key
+  attr_reader :gist
 
-  def initialize(question, client: nil)
+  def initialize(question, client: default_client)
     @question = question
     @test = @question.test
-    @client = client || Octokit::Client.new(  access_token: ACCESS_TOKEN)  
+    @client = client
   end
 
   def call
-    result = @client.create_gist(gist_params)
+    @gist = @client.create_gist(gist_params)
   end
 
   private
@@ -26,9 +27,10 @@ class GistQuestionService
   end
 
   def gist_content
-    content = [@question.title]
-    content += @question.answers.pluck(:title)
-    content.join("\n")
+    [@question.title, *@question.answers.pluck(:title)].join("\n")
   end
 
+  def default_client
+    Octokit::Client.new(access_token: GITHUB_GIST_TOKEN)
+  end
 end

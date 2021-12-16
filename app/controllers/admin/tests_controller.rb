@@ -1,5 +1,4 @@
 class Admin::TestsController < Admin::BaseController
-
   before_action :set_test, only: %i[show edit update destroy start]
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
@@ -52,5 +51,4 @@ class Admin::TestsController < Admin::BaseController
   def test_params
     params.require(:test).permit(:title,:category_id,:level)
   end
-
 end

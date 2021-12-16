@@ -1,5 +1,4 @@
 class TestsController < ApplicationController
-
   before_action :authenticate_user!
   before_action :set_test, only: %i[start]
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
@@ -22,5 +21,4 @@ class TestsController < ApplicationController
   def set_test
     @test = Test.find(params[:id])
   end
-
 end

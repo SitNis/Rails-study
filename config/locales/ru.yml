@@ -271,7 +271,7 @@ ru:
     gist_params:
       question: "Вопрос %{title} с TestGuru"  
 
-  test_passages:
-    gist:
+  gists:
+    create:
       success: "Gist успешно сохранен!"
       failure: "Во время сохранения gist произошла ошибка!"

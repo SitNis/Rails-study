@@ -1,5 +1,4 @@
 class TestPassage < ApplicationRecord
-
   SUCCESS_RATIO = 85.freeze
   
   has_many :gists
@@ -49,5 +48,4 @@ class TestPassage < ApplicationRecord
       self.current_question = test.questions.order(:id).where('id > ?', self.current_question.id).first
     end
   end
-
 end

@@ -36,7 +36,7 @@ en:
     gist_params:
       question: "A question about %{title} from TestGuru"
 
-  test_passages:
-    gist:
+  gists:
+    create:
       success: <b><a href="%{url}">Gist</a> created </b>
       failure: "Something went wrong!"
