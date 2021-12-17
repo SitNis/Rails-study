@@ -9,6 +9,6 @@ class Answer < ApplicationRecord
   private
 
   def validate_number_of_answers
-    errors.add :base, :invalid, message: "Question can only have 1..4 answers" if question.answers.count >= 4
+    errors.add :base, :invalid, message: 'Question can only have 1..4 answers' if question.answers.count >= 4
   end
 end

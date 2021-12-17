@@ -9,11 +9,16 @@ class GistQuestionService
     @client = client
   end
 
-  def call
+  def gist
     @gist = @client.create_gist(gist_params)
+    call(@gist)
   end
 
   private
+
+  def call(gist)
+    gist_params = GistStruct.new(gist.html_url)
+  end
 
   def gist_params
     {

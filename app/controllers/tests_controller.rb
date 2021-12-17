@@ -15,7 +15,7 @@ class TestsController < ApplicationController
   private
 
   def rescue_with_test_not_found
-    render plain: "Такого теста нет!"
+    render plain: 'Такого теста нет!'
   end
 
   def set_test
