@@ -1,7 +1,7 @@
 class GistsController < ApplicationController
   def create
     set_test_passage
-    gist = GistQuestionService.new(@test_passage.current_question).gist
+    gist = GistQuestionService.new(@test_passage.current_question).build_gist
     if gist.success?
       flash_options = { notice: t('.success', url: gist.url) }
       created_gist = @test_passage.gists.build(question_id: @test_passage.current_question.id,
