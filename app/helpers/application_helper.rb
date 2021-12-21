@@ -3,13 +3,13 @@ module ApplicationHelper
     Date.current.year
   end
 
-  def github_url(author,repo)
-    link_to "Ссылка на проект", "https://github.com/#{author}/#{repo}/", rel: "nofollow", target:"_blank"
+  def github_url(author, repo)
+    link_to 'Ссылка на проект', "https://github.com/#{author}/#{repo}/", rel: 'nofollow', target: '_blank'
   end
 
   def flash_message
     flash.map do |key, msg|
-      content_tag :div, raw(msg), :id => key, :class => 'flash'
+      content_tag :div, raw(msg), id: key, class: 'flash'
     end.join.html_safe
   end
 end
