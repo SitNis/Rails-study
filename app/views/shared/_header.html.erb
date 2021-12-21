@@ -1,9 +1,6 @@
 <% if user_signed_in? %> 
   <p> Welcome, <%= current_user.email %> Guru. </p>
-  <p> <%= link_to "Logout",     
-          destroy_user_session_path, 
-          method: "delete",
-          data: { confirm: 'Are you sure?'}  %></p>
+  <p> <%= button_to('Logout', destroy_user_session_path, method: :delete)  %></p>
 <% else %>
   <p>Welcome!</p>
   <p><%= link_to "Registration", new_user_registration_path %></p>
