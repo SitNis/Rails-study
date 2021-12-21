@@ -31,3 +31,12 @@
 
 en:
   hello: "Hello world"
+
+  gist_question_service:
+    gist_params:
+      question: "A question about %{title} from TestGuru"
+
+  gists:
+    create:
+      success: <b><a href="%{url}">Gist</a> created </b>
+      failure: "Something went wrong!"

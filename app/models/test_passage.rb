@@ -1,17 +1,15 @@
 class TestPassage < ApplicationRecord
+  SUCCESS_RATIO = 85
 
-  SUCCESS_RATIO = 85.freeze
-  
+  has_many :gists
   belongs_to :user
   belongs_to :test
-  belongs_to :current_question, class_name: "Question", optional: true
+  belongs_to :current_question, class_name: 'Question', optional: true
 
   before_validation :set_current_question
 
   def accept!(answer_ids)
-    if correct_answer?(answer_ids)
-      self.correct_questions += 1
-    end
+    self.correct_questions += 1 if correct_answer?(answer_ids)
     save!
   end
 
@@ -42,11 +40,10 @@ class TestPassage < ApplicationRecord
   end
 
   def next_question
-    if self.current_question.nil?
+    if current_question.nil?
       self.current_question = test.questions.first if test.present?
     else
-      self.current_question = test.questions.order(:id).where('id > ?', self.current_question.id).first
+      self.current_question = test.questions.order(:id).where('id > ?', current_question.id).first
     end
   end
-
 end

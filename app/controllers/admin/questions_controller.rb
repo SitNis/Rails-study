@@ -1,11 +1,9 @@
 class Admin::QuestionsController < Admin::BaseController
-
   before_action :current_test, only: %i[create new]
   before_action :current_question, only: %i[destroy show edit update]
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
-  def show
-  end
+  def show; end
 
   def create
     @question = @test.questions.build(question_params)
@@ -16,8 +14,7 @@ class Admin::QuestionsController < Admin::BaseController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def new
     @question = Question.new
@@ -33,7 +30,7 @@ class Admin::QuestionsController < Admin::BaseController
       redirect_to admin_question_path(@question)
     else
       render :edit
-    end    
+    end
   end
 
   private
@@ -51,6 +48,6 @@ class Admin::QuestionsController < Admin::BaseController
   end
 
   def rescue_with_question_not_found
-    render plain: "Такого вопроса нет!"
+    render plain: 'Такого вопроса нет!'
   end
 end
