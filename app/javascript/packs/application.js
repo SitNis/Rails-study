@@ -7,6 +7,8 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+import 'packs/utilities/sorting'
+import 'packs/utilities/password_confirmation'
 
 Rails.start()
 Turbolinks.start()
