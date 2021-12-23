@@ -1,14 +1,14 @@
 document.addEventListener('turbolinks:load', function () {
-  const confirmation_password = document.querySelector('.confirmation-password')
-  const password = document.querySelector('.password')
-  confirmation_password.addEventListener('keyup', checkPassword)
-  password.addEventListener('keyup', checkPassword)
+  const form = document.querySelector('form')
+  const password = form.elements.user_password
+  const confirmation_password = form.elements.user_password_confirmation
+  form.addEventListener('keyup', function() {
+      if(password.value != '') checkPassword(password, confirmation_password)
+    })
 })
 
-function checkPassword() {
-  const password = document.querySelector('.password').querySelector('input')
-  const confirmation_password = document.querySelector('.confirmation-password').querySelector('input')
-  if (password.value === confirmation_password.value){
+function checkPassword(password, confirmation_password) {
+  if (password.value === confirmation_password.value) {
     confirmation_password.classList.remove('invalid')
     confirmation_password.classList.add('valid')
     password.classList.remove('invalid')

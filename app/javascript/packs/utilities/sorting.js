@@ -1,20 +1,20 @@
 document.addEventListener('turbolinks:load', function () {
-  var control = document.querySelector('.sort-by-title')
+  const control = document.querySelector('.sort-by-title')
   if (control) { control.addEventListener('click', sortRowsByTitle) }
 })
 
 function sortRowsByTitle() {
-  let table = document.querySelector('table')
+  const table = document.querySelector('table')
 
-  let rows = table.querySelectorAll('tr')
-  let sortedRows = []
+  const rows = table.querySelectorAll('tr')
+  const sortedRows = []
 
   for (let i = 1; i < rows.length; i++) {
     sortedRows.push(rows[i])
   }
 
-  let arrowUp = table.querySelector('.octicon-arrow-up')
-  let arrowDown = table.querySelector('.octicon-arrow-down')
+  const arrowUp = table.querySelector('.octicon-arrow-up')
+  const arrowDown = table.querySelector('.octicon-arrow-down')
   if (arrowUp.classList.contains('hide')) {
     sortedRows.sort(compareRowsAsc)
     arrowUp.classList.remove('hide')
@@ -25,7 +25,7 @@ function sortRowsByTitle() {
     arrowUp.classList.add('hide')
   }
 
-  let sortedTable = document.createElement('table')
+  const sortedTable = document.createElement('table')
 
   sortedTable.classList.add('table')
   sortedTable.appendChild(rows[0])
@@ -38,18 +38,16 @@ function sortRowsByTitle() {
 }
 
 function compareRowsAsc(row1, row2) {
-  let testTitle1 = row1.querySelector('td').textContent
-  let testTitle2 = row2.querySelector('td').textContent
-  console.log(testTitle2,testTitle1)
+  const testTitle1 = row1.querySelector('td').textContent
+  const testTitle2 = row2.querySelector('td').textContent
   if (testTitle1 < testTitle2) { return -1 }
   if (testTitle1 > testTitle2) { return 1 }
   return 0
 }
 
 function compareRowsDesc(row1, row2) {
-  let testTitle1 = row1.querySelector('td').textContent
-  let testTitle2 = row2.querySelector('td').textContent
-  console.log(testTitle2,testTitle1)
+  const testTitle1 = row1.querySelector('td').textContent
+  const testTitle2 = row2.querySelector('td').textContent
   if (testTitle1 < testTitle2) { return 1 }
   if (testTitle1 > testTitle2) { return -1 }
   return 0
