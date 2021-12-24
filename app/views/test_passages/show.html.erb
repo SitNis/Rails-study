@@ -4,6 +4,8 @@
   <%= @test_passage.current_question.title %>
 </b>
 
+<%= content_tag :div, '', class: "progress-bar", data: { questions: @test_passage.test.questions.count, current_question: @test_passage.test.questions.index(@test_passage.current_question)+1 } %>
+
 <p>
   Вопрос <%= @test_passage.test.questions.index(@test_passage.current_question)+1 %> из <%= @test_passage.test.questions.count %>
 </p>
@@ -16,5 +18,5 @@
     </p>
   <% end %>
   <p><%= link_to "Gist Question", test_passage_path(@test_passage), method: :post %></p>
-  <p><%= form.submit 'Next'%></p>
+  <p><%= form.submit 'Next', class: "next-button" %></p>
 <% end %>

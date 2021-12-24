@@ -16,5 +16,6 @@
 @import "bootstrap";
 @import "typography/icons";
 @import "global";
-@import "password_confirmation"
+@import "password_confirmation";
+@import "progress_bar";
 
