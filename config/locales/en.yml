@@ -40,3 +40,24 @@ en:
     create:
       success: <b><a href="%{url}">Gist</a> created </b>
       failure: "Something went wrong!"
+
+  tests:
+    index:
+      header: "Available tests"
+
+  test_passages:
+    result:
+      header: "Test %{title} complete!"
+
+  admin:
+    tests:
+      create:
+        success: "Test created!"
+      index:
+        header: "Available tests"
+      form_inline:
+        submit: "Ok"
+
+  tests_mailer:
+    completed_test:
+      subject: "You successfully completed TestGuru's test"

@@ -274,4 +274,25 @@ ru:
   gists:
     create:
       success: "Gist успешно сохранен!"
-      failure: "Во время сохранения gist произошла ошибка!"
+      failure: "Во время сохранения gist произошла ошибка!"  
+  
+  tests:
+    index:
+      header: "Доступные тесты"
+
+  test_passages:
+    result:
+      header: "Тест %{title} завершен!"
+
+  admin:
+    tests:
+      create:
+        success: "Тест создан!"
+      index:
+        header: "Доступные тесты"
+      form_inline:
+        submit: "Ок"
+
+  tests_mailer:
+    completed_test:
+      subject: "Вы успешно закончили тест TestGuru"
