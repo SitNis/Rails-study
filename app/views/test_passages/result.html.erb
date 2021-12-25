@@ -1,4 +1,4 @@
-<h1>Test passsed</h1>
+<h1><%= t('.header', title: @test_passage.test.title) %></h1>
 <% if @test_passage.successful?%>
 	<p style = "color: green;"> You passed! <%= @test_passage.sum_result %>%</p>
 <% else %>

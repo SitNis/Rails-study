@@ -1,6 +1,7 @@
-<h1>Tests</h1>
+<h1><%= t('.header') %></h1>
 <%= link_to "New test", new_admin_test_path %>
 <%= link_to "Gists", admin_gists_path %>
+<%= render 'shared/errors', resource: @test %>
 <table class="table">
   <tr>
     <th class="sort-by-title pointer">
