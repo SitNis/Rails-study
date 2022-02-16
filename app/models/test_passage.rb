@@ -25,6 +25,10 @@ class TestPassage < ApplicationRecord
     result = self.correct_questions.to_f / self.test.questions.count.to_f * 100
   end
 
+  def time_left
+    self.created_at + self.test.time.to_i - Time.now
+  end
+
   private
 
   def set_current_question

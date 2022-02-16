@@ -4,7 +4,14 @@
   <%= @test_passage.current_question.title %>
 </b>
 
-<%= content_tag :div, '', 
+<%= content_tag :div,
+                '',
+                class: "timer",
+                data: { time: @test_passage.time_left,
+                        test_passage_id: @test_passage.id } %>
+
+<%= content_tag :div, 
+                '', 
                 class: "progress-bar",
                 data: { questions: @test_passage.test.questions.count, 
                         current_question: @test_passage.test.questions.index(@test_passage.current_question) } %>
