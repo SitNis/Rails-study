@@ -15,7 +15,8 @@ function timeRemaining(timer) {
     timer
     if (time <= 0) {
       clearInterval(clock)
-      window.location.replace("/test_passages/" + testPassageId + "/result")
+      const form = document.querySelector('.test-form')
+      form.submit()
     }
     else {
       timer.innerHTML = (hours + ":" + minutes + ":" + seconds)
