@@ -1,0 +1,23 @@
+<%= form_with model: [:admin, @badge], local: true do |form| %>
+  <%= render 'shared/errors', resource: @badge %> 
+
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+
+  <p>
+    <%= form.label :rule %><br>
+    <%= form.text_field :rule %>
+  </p>
+
+  <p>
+    <%= form.label :image %><br>
+    <%= form.collection_select :image, Dir.children(Rails.root.join('public', 'images'))  , :to_s, :to_s %>
+  </p>
+
+  <p><%= form.submit %></p>
+
+<% end %>
+
+<%= link_to "Back", admin_badges_path %>
