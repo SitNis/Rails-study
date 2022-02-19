@@ -4,7 +4,14 @@
   <%= @test_passage.current_question.title %>
 </b>
 
-<%= content_tag :div, '', 
+<%= content_tag :div,
+                '',
+                class: "timer",
+                data: { time: @test_passage.time_left,
+                        test_passage_id: @test_passage.id } %>
+
+<%= content_tag :div, 
+                '', 
                 class: "progress-bar",
                 data: { questions: @test_passage.test.questions.count, 
                         current_question: @test_passage.test.questions.index(@test_passage.current_question) } %>
@@ -13,7 +20,7 @@
   Вопрос <%= @test_passage.test.questions.index(@test_passage.current_question)+1 %> из <%= @test_passage.test.questions.count %>
 </p>
 
-<%= form_with url: test_passage_path(@test_passage), local: true, method: :put do |form|%>
+<%= form_with url: test_passage_path(@test_passage), class: "test-form", local: true, method: :put do |form|%>
   <%= form.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :title, include_hidden: false do |b| %>
     <p>
       <%= b.check_box id: "answer_ids_#{b.object.id}" %>
@@ -21,5 +28,5 @@
     </p>
   <% end %>
   <p><%= link_to "Gist Question", test_passage_path(@test_passage), method: :post %></p>
-  <p><%= form.submit 'Next', class: "next-button" %></p>
+  <p><%= form.submit 'Next' %></p>
 <% end %>

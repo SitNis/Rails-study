@@ -14,7 +14,7 @@ class TestPassage < ApplicationRecord
   end
 
   def completed?
-    current_question.nil?
+    current_question.nil? || time_left <= 0
   end
 
   def successful?
@@ -23,6 +23,10 @@ class TestPassage < ApplicationRecord
 
   def sum_result
     result = self.correct_questions.to_f / self.test.questions.count.to_f * 100
+  end
+
+  def time_left
+    self.created_at + self.test.time.to_i - Time.now
   end
 
   private
