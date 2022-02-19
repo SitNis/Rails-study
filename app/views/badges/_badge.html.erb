@@ -1,4 +1,7 @@
 <tr>
-  <td> <%= badge.title %> </td>
-  <td> <%= @user_badges %> </td>
+  <td>
+    <li><%= badge.name %></li><br>
+    <%= image_tag(badge.image, width: "32", height: "32") %> 
+    <%= badge.rules %>
+  </td>
 </tr>

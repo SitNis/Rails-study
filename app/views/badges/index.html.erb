@@ -2,10 +2,18 @@
 <table>
   <tr>
     <th>All badges</th>
-    <th>Achieved badges</th>
   </tr>
 
   <%= render @badges %>
+
+</table>
+
+<table>
+  <tr>
+    <th>Achived badges</th>
+  </tr>
+
+  <%= render partial: "user_badge", collection: @user_badges %>
 
 </table>
 
