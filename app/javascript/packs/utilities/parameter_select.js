@@ -11,11 +11,11 @@ document.addEventListener('turbolinks:load', function() {
 
 function rule_parameter_vision(value, levelSelector, categorySelector){
   const rule_parameter_selector = document.querySelector('.parameter-selector')
-  if (value == "Level") {
+  if (value == "level") {
     rule_parameter_selector.appendChild(levelSelector)
     levelSelector.classList.remove('hide')
     rule_parameter_selector.removeChild(categorySelector)
-  } else if (value == "Category") {
+  } else if (value == "category") {
     rule_parameter_selector.appendChild(categorySelector)
     categorySelector.classList.remove('hide')
     rule_parameter_selector.removeChild(levelSelector)
