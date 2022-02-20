@@ -1,4 +1,4 @@
-<%= form_with model: [:admin, @badge], local: true do |form| %>
+<%= form_with model: [:admin, @badge], class:"badge-params", local: true do |form| %>
   <%= render 'shared/errors', resource: @badge %> 
 
   <p>
@@ -11,14 +11,10 @@
     <%= form.collection_select :rule_type, ['Level','Category','First try'], :to_s, :to_s, prompt: true %>
   </p>
 
-  <p class='category-selector hide'>
+  <p class='parameter-selector'>
     <%= form.label :rule_parameter %>
-    <%= form.collection_select :rule_parameter, Category.all, :id, :title, { prompt: true } %>
-  </p>
-
-  <p class='level-selector hide'>
-    <%= form.label :rule_parameter %>
-    <%= form.collection_select :rule_parameter, Test.tests_uniq_levels, :to_s, :to_s, { prompt: true } %>
+    <%= form.collection_select :rule_parameter, Category.all, :id, :title, { prompt: true }, { class: "category-selector hide" } %>
+    <%= form.collection_select :rule_parameter, Test.tests_uniq_levels, :to_s, :to_s, { prompt: true }, { class: "level-selector hide" }%>
   </p>
 
   <p>
