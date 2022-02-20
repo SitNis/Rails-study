@@ -6,9 +6,19 @@
     <%= form.text_field :name %>
   </p>
 
-  <p>
-    <%= form.label :rules %><br>
-    <%= form.text_field :rules %>
+  <p class='type-selector'>
+    <%= form.label :rule_type %><br>
+    <%= form.collection_select :rule_type, ['Level','Category','First try'], :to_s, :to_s, prompt: true %>
+  </p>
+
+  <p class='category-selector hide'>
+    <%= form.label :rule_parameter %>
+    <%= form.collection_select :rule_parameter, Category.all, :id, :title, { prompt: true } %>
+  </p>
+
+  <p class='level-selector hide'>
+    <%= form.label :rule_parameter %>
+    <%= form.collection_select :rule_parameter, Test.tests_uniq_levels, :to_s, :to_s, { prompt: true } %>
   </p>
 
   <p>
