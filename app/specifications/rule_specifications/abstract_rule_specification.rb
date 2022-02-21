@@ -1,4 +1,4 @@
-module RuleSpecification
+module RuleSpecifications
   class AbstractRuleSpecification
     def initialize(rule_parameter, test_passage)
       @rule_parameter = rule_parameter

@@ -1,4 +1,4 @@
-module RuleSpecification
+module RuleSpecifications
   class CompleteSameLevelTestsRule < AbstractRuleSpecification
     def satisfies?
       count_successfully_passed_same_level_tests(@test, @user, @rule_parameter) == count_parameter_level_tests(@rule_parameter) && 
@@ -13,12 +13,12 @@ module RuleSpecification
 
     def count_successfully_passed_same_level_tests(test, user, rule_parameter)
       if test.level == rule_parameter.to_i
-        Test.
-        joins(:test_passages).
-        where(level: test.level, test_passages: { user_id: @test_passage.user.id,
-                                                            passed: 1 }).
-        uniq.
-        count
+        Test
+          .joins(:test_passages)
+          .where(level: test.level, test_passages: { user_id: @test_passage.user.id,
+                                                            passed: 1 })
+          .uniq
+          .count
       end
     end
 

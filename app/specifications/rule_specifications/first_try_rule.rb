@@ -1,4 +1,4 @@
-module RuleSpecification
+module RuleSpecifications
   class FirstTryRule < AbstractRuleSpecification
     def satisfies?
       count_test_tries(@test, @user) == 1 && count_successful_tries(@test, @user) == 1

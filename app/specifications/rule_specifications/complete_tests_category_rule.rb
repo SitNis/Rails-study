@@ -1,4 +1,4 @@
-module RuleSpecification
+module RuleSpecifications
   class CompleteTestsCategoryRule < AbstractRuleSpecification
     def satisfies?
       count_successfully_passed_category_tests(@test, @user, @rule_parameter) == count_category_tests(@rule_parameter) && 
@@ -13,12 +13,12 @@ module RuleSpecification
 
     def count_successfully_passed_category_tests(test, user, rule_parameter)
       if test.category.title  == rule_parameter
-        Test.
-        joins(:test_passages).
-        where(category_id: test.category.id, test_passages: { user_id: user.id, 
-                                                          passed: 1 }).
-        uniq.
-        count
+        Test
+          .joins(:test_passages)
+          .where(category_id: test.category.id, test_passages: { user_id: user.id, 
+                                                          passed: 1 })
+          .uniq
+          .count
       end
     end
 

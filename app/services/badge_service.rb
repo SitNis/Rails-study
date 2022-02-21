@@ -1,10 +1,8 @@
 class BadgeService
-  include RuleSpecification
-
   RULES = {
-    'First try': FirstTryRule,
-    'Category': CompleteTestsCategoryRule,
-    'Level': CompleteSameLevelTestsRule
+    'First try': RuleSpecifications::FirstTryRule,
+    'Category': RuleSpecifications::CompleteTestsCategoryRule,
+    'Level': RuleSpecifications::CompleteSameLevelTestsRule
   }.freeze
 
   def initialize(test_passage)
