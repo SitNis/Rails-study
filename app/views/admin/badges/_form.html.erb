@@ -1,0 +1,29 @@
+<%= form_with model: [:admin, @badge], class:"badge-params", local: true do |form| %>
+  <%= render 'shared/errors', resource: @badge %> 
+
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+
+  <p class='type-selector'>
+    <%= form.label :rule_type %><br>
+    <%= form.collection_select :rule_type, ['Level','Category','First try'], :to_s, :to_s, prompt: true %>
+  </p>
+
+  <p class='parameter-selector'>
+    <%= form.label :rule_parameter %>
+    <%= form.collection_select :rule_parameter, Category.all, :title, :title, { prompt: true }, { class: "category-selector hide" } %>
+    <%= form.collection_select :rule_parameter, Test.tests_uniq_levels, :to_s, :to_s, { prompt: true }, { class: "level-selector hide" }%>
+  </p>
+
+  <p>
+    <%= form.label :image %><br>
+    <%= form.collection_select :image, Dir.children(Rails.root.join('app','assets','images'))  , :to_s, :to_s %>
+  </p>
+
+  <p><%= form.submit %></p>
+
+<% end %>
+
+<%= link_to "Back", admin_badges_path %>
